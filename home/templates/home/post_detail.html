@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title  %}{{post.title_tag}}{% endblock title %}
+{% block body  %}
+
+<h1>{{post.title}}</h1>
+<h4><b>By:Neha Jaiswal- 
+{% if user.is_authenticated %}
+   
+    <a href="{% url 'editpost' post.pk %}">Update</a>
+    <a href="{% url 'delete_post' post.pk %}">Delete</a>
+  
+{% endif %}
+-{{post.post_date_field}}
+</b></h4>
+<hr>
+<br/>
+{% if post.header_image %}
+      <img src="{{post.header_image.url  }}" width=1600 height=800 >
+
+
+
+{% endif %}
+ 
+    
+
+
+{{post.body|safe}}
+<br/>
+<a href="{% url 'post_list' %}" class="btn btn-secondary">Back to</a><br/>
+<hr><br/><br/>
+
+
+
+
+
+
+<br/>
+
+
+<div class="card mb-3" >
+  <div class="row no-gutters">
+    <div class="col-md-2">
+{% if post.author.profile.profile_pic %}
+      <img src="{{post.author.profile.profile_pic.url }}"  width=200 height=200 >
+
+{%else%}
+    <img src="{% static 'img/profile.jpg'%}" class="card-img" width=200 height=200 >
+{% endif %}
+    
+    </div>
+    <div class="col-md-10">
+      <div class="card-body">
+        <h5 class="card-title">Neha Jaiswal</h5>
+        <p class="card-text">{{post.author.profile.bio}}</p>
+        <a href="{% url 'show_profile_page' post.author.profile.id %}">profile page</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<h1>comments...</h1>
+{% if not post.comments.all %}
+    no comments ...<a href="{% url 'comments' post.pk%}">add comment</a>
+{% else %}
+
+
+<a href="{% url 'comments' post.pk%}">Add comment</a>
+<br/><br/>
+    {% for comment in post.comments.all %}
+    <strong>
+        {{comment.name}} -
+        {{comment.date_added}}
+        </strong>
+        <br/>
+        {{comment.body}}
+        <br/>
+        
+    {%endfor%}
+    <a href="{% url 'comments' post.pk%}">Add comment</a>
+{% endif %}
+<br/>
+
+
+
+{% endblock body  %}

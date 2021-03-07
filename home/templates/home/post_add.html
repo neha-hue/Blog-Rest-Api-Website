@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title  %}post_add{% endblock title %}
+{% block body  %}
+{% if user.is_authenticated %}
+    <h1>add post</h1>
+    <br/>
+
+
+<div class="form-group" >
+    <form method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {{form.media}}
+        {{ form.as_p }}
+        
+        <button class="btn btn-secondary">Post</button>
+        <script>
+        var name="{{user.id}}";
+        document.getElementById("neha").value=name;
+        </script>
+{% else %}
+<h1>you are not allowed here</h1>
+{% endif %}
+</div>
+
+
+{% endblock body  %}

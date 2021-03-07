@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block body  %}
+<div class="container-fluid my-4 px-0" style="background-image: url('{%static "img/cupcake.jpg"%}'); background-repeat:no-repeat;  background-size:2300px 1300px ;background-color:black; background-position:justify; background-attachment:fixed">
+
+<a href = "{% url 'doctor' %}"><button type="button"  style="display:inline-block; margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom:10px; text-shadow: 2px 2px 5px blue;" onmouseover="this.style.color='#111'; this.style.background='linear-gradient(90deg,rgba(255,0,0,0), rgba(255,0,0,1))';" onmouseout="this.style.background='linear-gradient(90deg,black,pink,violet)';"><h3>Medical Store Near By your Area</h3></button></a>
+&nbsp;
+<a href = "{% url 'wedding' %}" ><button type="button" style="display:inline-block; margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom:10px; text-shadow: 2px 2px 5px red;" onmouseover="this.style.color='#111'; this.style.background='linear-gradient(90deg,rgba(255,0,0,0), rgba(255,0,0,1))';" onmouseout="this.style.background='linear-gradient(90deg,black,pink,violet)';"><h3>Wedding Store Near By your Area</h3></button></a> 
+&nbsp;
+<a href = "{% url 'fashion' %}"><button type="button" style="display:inline-block; margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom:10px; text-shadow: 2px 2px 5px yellowgreen;" onmouseover="this.style.color='#111'; this.style.background='linear-gradient(90deg,rgba(255,0,0,0),rgba(255,0,0,1))';" onmouseout="this.style.background='linear-gradient(90deg,black,pink,violet)';"><h3>Atm Near By your Area</h3></button></a> &nbsp;<br/>
+
+<a href = "{% url 'painter' %}"><button type="button"  style="display:inline-block; margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom:10px; text-shadow: 2px 2px 5px orange;" onmouseover="this.style.color='#111'; this.style.background='linear-gradient(90deg,rgba(255,0,0,0), rgba(255,0,0,2))';" onmouseout="this.style.background='linear-gradient(90deg,black,pink,violet)';"><h3>Art Gallery Store Near By your Area</h3></button></a>
+&nbsp;
+<a href = "{% url 'jwellery' %}"><button type="button"  style="display:inline-block; margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom:10px; text-shadow: 2px 2px 5px purple;" onmouseover="this.style.color='#111'; this.style.background='linear-gradient(90deg,rgba(255,0,0,0), rgba(255,0,0,1))';" onmouseout="this.style.background='linear-gradient(90deg,black,pink,violet)';"><h3>Jwellery Store Near By your Area</h3></button></a>
+&nbsp;
+<a href = "{% url 'food' %}"><button type="button"  style="display:inline-block; margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom:10px; text-shadow: 2px 2px 5px indigo" onmouseover="this.style.color='#111'; this.style.background='linear-gradient(90deg,rgba(255,0,0,0), rgba(255,0,0,1))';" onmouseout="this.style.background='linear-gradient(90deg,black,pink,violet)';"><h3>Food Store Near By your Area</h3></button></a>&nbsp; <br/>
+&nbsp;
+<a href = "{% url 'clothes' %}"><button type="button"  style="display:inline-block; margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom:10px; text-shadow: 2px 2px 5px darkgoldenrod" onmouseover="this.style.color='#111'; this.style.background='linear-gradient(90deg,rgba(255,0,0,0), rgba(255,0,0,1))';" onmouseout="this.style.background='linear-gradient(90deg,black,pink,violet)';"><h3>Clothes Store Near By your Area</h3></button></a> 
+&nbsp;
+<a href = "{% url 'travel' %}"><button type="button"  style="display:inline-block; margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom:10px; text-shadow: 2px 2px 5px aqua" onmouseover="this.style.color='#111'; this.style.background='linear-gradient(90deg,rgba(255,0,0,0), rgba(255,0,0,1))';" onmouseout="this.style.background='linear-gradient(90deg,black,pink,violet)';"><h3>Travel Adress</h3></button></a>
+&nbsp;
+<a href = "{% url 'makeup' %}"><button type="button"  style="display:inline-block; margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom:10px; text-shadow: 2px 2px 5px hotpink" onmouseover="this.style.color='#111'; this.style.background='linear-gradient(90deg,rgba(255,0,0,0), rgba(255,0,0,1))';" onmouseout="this.style.background='linear-gradient(90deg,black,pink,violet)';"><h3>Makeup Product Information</h3></button></a>&nbsp;<br/>
+&nbsp;
+<a href = "{% url 'recipe' %}"><button type="button"  style="display:inline-block; margin-left:10px; margin-right:10px; margin-top:10px; margin-bottom:10px; text-shadow: 2px 2px 5px crimson" onmouseover="this.style.color='#111'; this.style.background='linear-gradient(90deg,rgba(255,0,0,0), rgba(255,0,0,1))';" onmouseout="this.style.background='linear-gradient(90deg,black,pink,violet)';"><h3>Recipe By Ingerdients</h3></button></a>
+
+
+
+<form method="get">
+  <input type="text" name="query" style="display:inline-block; margin-left:10px;">
+  <button type="submit"  style="display:inline-block margin-right:10px; margin-top:10px; margin-bottom:10px; margin-left:10px; text-shadow: 2px 2px 5px royalblue;" onmouseover="this.style.color='#111'; this.style.background='linear-gradient(90deg,rgba(255,0,0,0), rgba(255,0,0,1))';" onmouseout="this.style.background='linear-gradient(90deg,black,pink,violet)';" ><h3>search any places</h3></button>
+  </form>
+{%if q%}
+  {%for elems in q%}
+    <h3>Name:<strong>{{elems.poi.name}}</strong></h3>
+    <p><h3>Adress:</h3>
+    <h3>streetName:<strong>{{elems.address.streetName}}</strong><br/></h3>
+   <h3> municipalitySubdivision:<strong>{{elems.address.municipalitySubdivision}}</strong><br/></h3>
+    <h3>municipality:<strong>{{elems.address.municipality}}</strong><br/></h3>
+    <h3>countrySubdivision:<strong>{{elems.address.countrySubdivision}}</strong><br/></h3>
+    <h3>postalCode:<strong>{{elems.address.postalCode}}</strong><br/></h3>
+    <h3>countryCode:<strong>{{elems.address.countryCode}}</strong><br/></h3>
+    <h3>country:<strong>{{elems.address.country}}</strong><br/></h3>
+    <h3>countryCodeISO3:<strong>{{elems.address.countryCodeISO3}}</strong><br/></h3>
+    <h3>freeformAddress:<strong>{{elems.address.freeformAddress}}</strong><br/></h3>
+    <h3>localName:<strong>{{elems.address.localName}}</strong><br/></h3>
+    <h3>------------------------------------------------------------------------------------------------------------------------------------------------------------------</h3></p>
+    
+
+
+    {%endfor%}
+{%endif%}
+{% endblock body  %}

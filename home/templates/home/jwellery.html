@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title  %}jwellery{% endblock title %}
+{% block body  %}
+<div class="container-fluid px-0 mb-3">
+
+<div class="container-fluid my-4 px-0" style="background-image: url('{%static "img/jwelle.jpg"%}'); background-repeat:no-repeat;  background-size:2300px 1300px; background-position:justify; background-attachment:fixed">
+<div class="p-3 mb-2" style="color: rgb(40, 233, 250);";>
+{%if t1%}
+  {%for elem in t1%}
+    <h3>Name:<strong>{{elem.poi.name}}</strong></h3>
+    <p><h3>Adress:</h3>
+    <h3>streetName:<strong>{{elem.address.streetName}}</strong><br/></h3>
+   <h3> municipalitySubdivision:<strong>{{elem.address.municipalitySubdivision}}</strong><br/></h3>
+    <h3>municipality:<strong>{{elem.address.municipality}}</strong><br/></h3>
+    <h3>countrySubdivision:<strong>{{elem.address.countrySubdivision}}</strong><br/></h3>
+    <h3>postalCode:<strong>{{elem.address.postalCode}}</strong><br/></h3>
+    <h3>countryCode:<strong>{{elem.address.countryCode}}</strong><br/></h3>
+    <h3>country:<strong>{{elem.address.country}}</strong><br/></h3>
+    <h3>countryCodeISO3:<strong>{{elem.address.countryCodeISO3}}</strong><br/></h3>
+    <h3>freeformAddress:<strong>{{elem.address.freeformAddress}}</strong><br/></h3>
+    <h3>localName:<strong>{{elem.address.localName}}</strong><br/></h3>
+    <h3>------------------------------------------------------------------------------------------------------------------------------------------------------------------</h3></p>
+    
+
+    
+
+    
+
+{%endfor%}
+{%endif%}
+</div>
+{% endblock body  %}

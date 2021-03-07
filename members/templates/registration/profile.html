@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title  %}profile settings{% endblock title %}
+{% block body  %}
+<h1>profile settings.....</h1>
+<br/>
+{{user.profile.bio}}
+<br/>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-secondary">update Profile</button>
+
+
+
+{% endblock body  %}

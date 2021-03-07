@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title  %}makeup{% endblock title %}
+{% block body  %}
+<div class="container-fluid my-4 px-0" style="background-image: url('{%static "img/makeup.jpg"%}'); background-repeat:no-repeat;  background-size:2300px 1300px; background-position:justify; background-attachment:fixed">
+<div class="p-3 mb-2" style="color: rgb(255, 255, 255);";>
+
+<form method="get">
+  <input type="text" name="product_type">
+  <button type="submit">search</button>
+  </form>
+
+  {%for s in b%}
+    {% for key,value in s.items %}
+    <!--<h3>{{key}}-{{value}}</h3>-->
+    <h3>Name   {{s.name}}</h3>
+    <h3> <img src="{{s.image_link}}" {{ s.image_link}} height=400 width=400 alt="no image"></h3>
+    <h3>Brand name  {{s.brand}}</h3>
+    <h3>Product link   <a href="{{s.product_link}}">{{s.product_link}}</a></h3>
+    <h3>Website link  <a herf="{{s.website_link}}">{{s.website_link}}</a></h3>
+    <h3>Description of particular product{{s.description}}</h3>
+    <h3>Rating  {{s.rating}}</h3>
+    <h3>ProductType  {{s.product_type}}</h3>
+    
+    <h3>----------------------------------------------</h3>
+    {% endfor %}
+  {% endfor %}
+    <!--<h3>Brand:<strong> {{b.s.image_link}}</strong></h3>
+    <h3>Brand:<strong> {{b.s.product_link}}</strong></h3>
+    <h3>Brand:<strong> {{b.s.website_link}}</strong></h3>
+    <h3>Brand:<strong> {{b.s.description}}</strong></h3>
+    <h3>Brand:<strong> {{b.s.rating}}</strong></h3>
+    <h3>Brand:<strong> {{b.s.product_type}}</strong></h3>-->
+    <!--{%for product in b.s.product_colors%}:
+        <h3>Brand:<strong> {{product.hex_value}}</strong></h3>
+        <h3>Brand:<strong> {{product.colour_name}}</strong></h3>
+        {% endfor %}-->
+  
+    
+
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock body  %}
